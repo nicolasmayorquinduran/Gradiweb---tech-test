@@ -1,145 +1,58 @@
-# Shopify Simulator Documentation
+# 🚀 Gradiweb - Technical Test
 
-Welcome to **Shopify Simulator**, a lightweight environment designed to help developers explore Shopify's Liquid templating language and dynamic section-based architecture. This project simulates Shopify's core functionalities, enabling developers to practice creating reusable components, iterating through data, and working with dynamic settings.
-
----
-
-## **Project Structure**
-
-```
-/simulator
-├── /config
-│   ├── settings_schema.json      # Defines configurable settings for sections
-│   ├── settings_data.json        # Stores dynamic data for rendering sections
-├── /data
-│   ├── products.json             # Sample product data
-│   ├── collections.json          # Sample collection data
-├── /public
-│   ├── styles.css                # Compiled CSS file
-│   ├── main.js                   # Compiled JavaScript file
-├── /sections
-│   ├── featured-products.liquid  # Main section rendering product lists
-├── /snippets
-│   ├── product-card.liquid       # Reusable snippet for individual product cards
-├── /templates
-│   ├── index.liquid              # Main template file
-├── /src
-│   ├── styles.scss               # Base SASS file
-│   ├── app.js                    # Base JavaScript logic
-├── /assets                       # Images for products, banners, and collections
-├── package.json
-├── webpack.config.js
-├── server.js
-```
+This project is the solution to the **Gradiweb technical test**.  
+It features a landing page built with the **Shopify Simulator framework**, adhering to the provided desktop and mobile designs.
 
 ---
 
-## **Liquid Basics**
+## 📋 Implemented Features
 
-Liquid is a templating language used in Shopify to dynamically render content. Below are the key concepts you'll use in this simulator:
+This project includes the following sections and functionalities:
 
-### **Sections**
+### ✅ Essential Sections
+- **Top Bar**: Features a marquee-style animation with configurable text from `settings_data.json`.
+- **Header**: A sticky header that becomes transparent on scroll. It includes a logo, payment method icons, and links.
+- **Footer**: A responsive footer with a logo, text, and social media links, all configurable via `settings_data.json`.
 
-Sections are modular components that render specific parts of a page. For example, the `featured-products.liquid` file is a section that displays a list of products. Sections can:
-
-- Access dynamic data from `settings_data.json`.
-- Be configured through a schema defined in `settings_schema.json`.
-
-Example:
-
-```liquid
-<section class="featured-products">
-  <h2>{{ settings['featured-products'].settings.heading }}</h2>
-</section>
-```
-
-### **Snippets**
-
-Snippets are reusable components, such as a product card. You can include a snippet using the `{% render %}` tag:
-
-Example:
-
-```liquid
-<div class="product-list">
-  {% for product in products %}
-    {% render 'product-card', product: product %}
-  {% endfor %}
-</div>
-```
-
-### **Iterating Over Objects**
-
-Liquid allows you to iterate over arrays, such as products or collections:
-
-```liquid
-<ul>
-  {% for product in products %}
-    <li>{{ product.title }} - ${{ product.price }}</li>
-  {% endfor %}
-</ul>
-```
-
-### **Filters**
-
-Filters are used to manipulate output. Some common filters:
-
-- `capitalize`: Capitalizes the first letter.
-- `date`: Formats a date.
-- `money`: Formats a number as currency.
-
-Example:
-
-```liquid
-{{ product.price | money }}
-{{ product.created_at | date: "%B %d, %Y" }}
-```
+### 🎯 Completed Sections
+- **Hero Banner**: A dynamic hero section with a configurable button and text from `settings_data.json`.
+- **Product Carousel**: Displays 10 products, with the first 4 visible and the rest revealed by clicking **"View All."**  
+  Each product card shows an image, name, price, and tags, with a hover effect on the product image.
 
 ---
 
-## **Dynamic Configuration**
+## 🛠️ Tech Stack & Implementation Details
 
-### **Schema (`settings_schema.json`)**
+- **HTML & Liquid** → For semantic structure and dynamic templating.  
+- **SASS** → Modular structure using **BEM methodology** for clean class naming.  
+- **JavaScript (Vanilla)** → Client-side logic without external frameworks, focusing on clean and reusable code.  
+- **Webpack** → Handles asset bundling and SASS compilation, with efficient development via file watching.  
+- **GitHub** → Clear, descriptive commit convention and separate branches for feature development.  
 
-The schema defines the settings available for a section. While it's necessary in Shopify, it might not be required here.
+---
 
-### **Data (`settings_data.json`)**
+## 🚀 Getting Started
 
-This file contains the dynamic values for settings
+Follow these steps to run the project locally:
 
-## **Setup Instructions**
-
-### **Install Dependencies**
+### 1️⃣ Clone the repository
 
 ```bash
+git clone [Your Repository URL]
+```
+
+### 2️⃣️ Install dependencies:
+
+```bash
+cd shopify-simulator
 npm install
 ```
 
-### **Run the Server**
+### 2️⃣ Run the project:
 
 ```bash
-npm start
+npm run dev
 ```
+Once started, the application will be accessible at:
+👉 http://localhost:3006
 
-### **Build Styles and Scripts**
-
-```bash
-npm run build
-```
-
----
-
-## **Additional Notes**
-
-### **Assets**
-
-All product, banner, and collection images are stored in the `/assets` folder. Refer to the `data/products.json` and `data/collections.json` files for mappings.
-
-### **Testing the Application**
-
-Visit `http://localhost:3000` in your browser to view the simulator in action.
-
----
-
-Feel free to customize the simulator further to match your requirements. Happy coding! 🚀
-
-For more information about Liquid, refer to the [official Liquid documentation](https://liquidjs.com/tutorials/intro-to-liquid.html).
