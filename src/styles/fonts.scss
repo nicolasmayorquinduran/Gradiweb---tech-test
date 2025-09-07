@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'aeonik';
+  src: url('../../assets/fonts/aeonik_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'aeonik';
+  src: url('../../assets/fonts/aeonik_bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'treck_classic';
+  src: url('../../assets/fonts/treck_classic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-primary: 'aeonik', sans-serif;
+  --font-secondary: 'treck_classic', sans-serif;
+}

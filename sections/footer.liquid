@@ -1,0 +1,45 @@
+<section>
+    <section>
+        <div>
+            {% include 'logos/shuffle' %}
+            <h2 class="header__logo__text">{{ settings['footer'].settings.footer_logo_text }}</h2>
+        </div>
+        <div>
+            <p>© 2024, Shuffle.store Operated by</p>
+            <p>Studio Plaid. Need help?</p>
+            <a href="mailto:support@shuffle.store">Email support@shuffle.store</a>    
+        </div>
+    </section>
+        <section>
+          <section>
+            <div>
+                {% for link in settings['footer'].settings.links limit: 4 %}
+                    <a href="{{ link.url }}">{{ link.label | upcase }}</a>
+                {% endfor %}
+            </div>
+            <div>
+                {% for link in settings['footer'].settings.links offset: 4 %}
+                    <a href="{{ link.url }}">{{ link.label | upcase  }}</a>
+                {% endfor %}
+            </div>
+        </section>
+        <section>
+            <small>We accept all major cards, Paypal & Crypto</small>
+            {% include 'payment-methods' %}
+        </section>
+    </section>
+    <section>
+        <fieldset>
+            <label>{{ settings['footer'].settings.newsletter_label }}</label>
+            <div>
+                <input type="email" placeholder="{{ settings['footer'].settings.newsletter_placeholder }}" />
+                {% include 'icons/arrow-right' %}
+            </div>
+        </fieldset> 
+        <div>
+            {% for link in settings['footer'].settings.social_links %}
+                <a href="{{ link.url }}">{{ link.label }}</a>
+            {% endfor %}
+        </div>
+    </section>
+</section>

@@ -1,0 +1,10 @@
+<section id="collections">
+  <h2>{{ settings['collections'].settings.heading }}</h2>
+  <div>
+    {% for collection in collections %}
+        {% if collection.created_at contains "2025" %}
+           <img class="collection-image" src="{{ collection.image | image_url: '400x' | prepend: 'assets/' }}" alt="{{ collection.title }}" width="400" height="400">
+        {% endif %}
+    {% endfor %}
+  </div>
+</section>

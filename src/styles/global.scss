@@ -1,0 +1,58 @@
+@use "./colors.scss";
+@use "./fonts.scss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-white100);
+  background-color: var(--color-mainBackground);
+  margin: 0;
+}
+
+.button {
+  background-color: var(--color-accent);
+  color: var(--color-white100);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.marquee {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.marquee__content {
+  display: flex;
+  gap: 2rem;
+  padding-right: 2rem;
+}
+
+.marquee__content__item {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* se mueve solo la mitad (porque duplicamos contenido) */
+  }
+}
