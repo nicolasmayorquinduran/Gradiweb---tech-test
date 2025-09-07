@@ -1,0 +1,20 @@
+<section id="top-bar" class="marquee">
+  <div class="marquee__track">
+    <div class="marquee__content">
+      {% for variable in (1..4) %}
+        <div>
+           <span  class="marquee__content__item"> Free shipping for orders over $100</span>
+         {% include 'icons/sparkle' %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="marquee__content">
+      {% for variable in (1..4) %}
+         <div>
+           <span  class="marquee__content__item"> Free shipping for orders over $100</span>
+         {% include 'icons/sparkle' %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,211 @@
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss ***!
+  \***************************************************************************************************************/
+:root {
+  --color-black100: #0f0e1a;
+  --color-black200: #1e2c37;
+  --color-white100: #f0eeea;
+  --color-background: #f0f2f5;
+  --color-mainBackground: #282c34;
+  --color-red: red;
+  --color-eerieBlack: #1f1f1f;
+  --color-primaryBackground: #1b1927;
+  --color-primary: #353e52;
+  --color-secondary: #5d6575;
+  --color-tertiary: #282e3d;
+  --color-border: #e5ece9;
+  --color-borderPanel: #eceef1;
+  --color-borderInput: #d8dfec;
+  --color-disabled: #2c3344;
+  --color-green: #6fef8a;
+  --color-wildBlueYonder: #9ba8c7;
+  --color-chineseBlack: #101110;
+  --color-iconBlack: #222831;
+  --color-btnHover: #6675ff;
+  --color-btnPressed: #5f12cc;
+  --color-btnGreen: #00bd71;
+  --color-btnGreenHover: #55ba78;
+  --color-primaryBlue: #1a2fff;
+  --color-white: #ffffff;
+  --color-primaryViolet: #886cff;
+  --color-primaryNeonPurple: #7717ff;
+  --color-lightBlue: #4185f0;
+  --color-lightGray: #eef1fa;
+  --color-mediumViolet: #372874;
+  --color-darkViolet: #42009e;
+  --color-lightViolet: #690cec;
+  --color-black: #000000;
+  --color-black900: #080808;
+  --color-gray900: #121418;
+  --color-gray800: #202329;
+  --color-gray700: #2a2e38;
+  --color-gray600: #343843;
+  --color-gray500: #4d5361;
+  --color-gray400: #828998;
+  --color-gray300: #9ba5b4;
+  --color-gray200: #bec6d1;
+  --color-gray100: #e6ecf1;
+  --color-grayScaleBlack: #080808;
+  --color-error: #f1323e;
+  --color-warning: #ff774a;
+  --color-warning-dark: #ff4d4d;
+  --color-info: #3eafff;
+  --color-success: #3dd179;
+  --color-lightError: #fde9e7;
+}
+
+@font-face {
+  font-family: "aeonik";
+  src: url(/fonts/aeonik_regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "aeonik";
+  src: url(/fonts/aeonik_bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "treck_classic";
+  src: url(/fonts/treck_classic.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --font-primary: "aeonik", sans-serif;
+  --font-secondary: "treck_classic", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-white100);
+  background-color: var(--color-mainBackground);
+  margin: 0;
+}
+
+.button {
+  background-color: var(--color-accent);
+  color: var(--color-white100);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.marquee {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.marquee__content {
+  display: flex;
+  gap: 2rem;
+  padding-right: 2rem;
+}
+
+.marquee__content__item {
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* se mueve solo la mitad (porque duplicamos contenido) */
+  }
+}
+.top-bar__marquee__content {
+  display: flex;
+  gap: 8px;
+}
+
+#header {
+  display: flex;
+  background-color: black;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+#header.scrolled {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.header__logo__text {
+  font-family: var(--font-secondary);
+  font-size: 24px;
+  color: white;
+}
+
+#hero {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.featured-products {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  position: relative;
+}
+
+#featured-products-container {
+  max-height: 300px;
+  overflow-y: auto;
+  position: relative;
+}
+
+#scroll-top-btn {
+  position: absolute;
+  display: none;
+  bottom: 8px;
+  right: 8px;
+}
+
+#collections {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.payment-methods svg {
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,20 @@
+<section id="top-bar" class="marquee">
+  <div class="marquee__track">
+    <div class="marquee__content">
+      {% for variable in (1..10) %}
+        <div>
+          <h4>{{  settings['hero-banner'].settings.marquee_text | upcase }}</h4>
+         {% include 'icons/sparkle' %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="marquee__content">
+      {% for variable in (1..10) %}
+         <div>
+          <h4>{{ settings['hero-banner'].settings.marquee_text | upcase }}</h4>
+         {% include 'icons/sparkle' %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

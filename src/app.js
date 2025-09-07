@@ -1,2 +1,17 @@
-import "./styles.scss";
-console.log('Gradiweb is online!!!');
+import "./styles/main.scss";
+import './utils/featured-products'
+import './utils/header'
+import '../assets/ket_club.jpg';
+import '../assets/shuffle_essentials.webp';
+import '../assets/hero_banner_img.avif';
+import '../assets/homepage_bottom_banner.avif';
+import '../assets/shuffle_crewneck_black.avif';
+import '../assets/shuffle_crewneck_grey.avif';
+import '../assets/shuffle_hat_black.avif';
+import '../assets/shuffle_hat_purple.avif';
+import '../assets/shuffle_hoodie_black.avif';
+import '../assets/shuffle_hoodie_purple.avif';
+import '../assets/shuffle_t-shirt_white.avif';
+import '../assets/shuffle_t-shirt_black.avif';
+import '../assets/waifu_body_pillow.avif';
+import '../assets/spring_banner.avif';
