@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'aeonik';
+  src: url('../../assets/fonts/aeonik_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'aeonik';
+  src: url('../../assets/fonts/aeonik_bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'predator';
+  src: url('../../assets/fonts/predator.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-primary: 'aeonik', sans-serif;
+  --font-secondary: 'predator', sans-serif;
+}

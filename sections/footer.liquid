@@ -1,0 +1,40 @@
+<footer id="footer" class="footer">
+    <section class="footer__links">
+            <div class="footer__links__main">
+                {% for link in settings['footer'].settings.links limit: 4 %}
+                    <a href="{{ link.url }}">{{ link.label | upcase }}</a>
+                {% endfor %}
+            </div>
+            <div class="footer__links__legal">
+                {% for link in settings['footer'].settings.links offset: 4 %}
+                    <a href="{{ link.url }}" class="font-small">{{ link.label | upcase }}</a>
+                {% endfor %}
+            </div>
+    </section>
+    <section class="footer__payment-methods">
+        <small class="footer__payment-label">We accept all major cards, Paypal & Crypto</small>
+        {% include 'payment-methods' %}
+    </section>
+    <fieldset class="footer__newsletter">
+            <label class="font-small">{{ settings['footer'].settings.newsletter_label }}</label>
+            <div class="footer__newsletter__input">
+                <input type="email" placeholder="{{ settings['footer'].settings.newsletter_placeholder }}" />
+                {% include 'icons/arrow-right' %}
+            </div>
+    </fieldset>
+    <section class="footer__primary-info">
+        {% include 'logos/shuffle-simple' %}
+        <div class="footer__primary-info__separator"></div>
+        <h2 class="footer__logo-text">{{ settings['footer'].settings.footer_logo_text }}</h2>
+    </section>
+    <section class="footer__socials">
+        {% for link in settings['footer'].settings.social_links %}
+        <a href="{{ link.url }}" class="font-medium">{{ link.label }}</a>
+        {% endfor %}
+    </section>
+    <section class="footer__legal font-small" >
+            <p>© 2024, Shuffle.store Operated by</p>
+            <p>Studio Plaid. Need help?</p>
+            <a href="mailto:support@shuffle.store" class="footer__legal-link">Email support@shuffle.store</a>
+    </section>
+</footer>

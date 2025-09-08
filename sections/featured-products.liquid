@@ -1,8 +1,9 @@
-<section class="featured-products">
-  <h2>{{ settings['featured-products'].settings.heading }}</h2>
-  <div class="product-list">
+<section id="products" class="featured-products section-delimited">  
+  <div id="featured-products-container" class="featured-products__product-list">
     {% for product in products %}
       {% render 'product-card', product: product %}
     {% endfor %}
   </div>
+
+  <button id="scroll-top-btn" class="featured-products__scroll-top-btn button--primary" aria-label="go up">⬆</button>
 </section>

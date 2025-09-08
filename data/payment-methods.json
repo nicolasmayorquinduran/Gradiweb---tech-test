@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "bitcoin",
+    "alt_text": "logo bitcoin"
+  },
+  {
+    "icon": "ethereum",
+    "alt_text": "Logo ethereum"
+  },
+  {
+    "icon": "litecoin",
+    "alt_text": "Logo litecoin"
+  },
+  {
+    "icon": "dogecoin",
+    "alt_text": "logo dogecoin"
+  },
+  {
+    "icon": "usdc",
+    "alt_text": "logo USDC"
+  }
+]

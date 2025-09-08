@@ -1,0 +1,32 @@
+{% capture menu %}
+      <button id="close-hamburger-btn" class="header__hamburger__close-hamburger-btn">
+        X
+      </button>
+        {% for link in settings['header'].settings.header_links %}
+          <a href="{{ link.url }}" class="header__link">{{ link.label }}</a>
+        {% endfor %}
+{% endcapture %}
+
+<header id="header" class="header" >
+    <section id="header__hamburger" class="header__hamburger header__hamburger--closed">
+        <button id="open-hamburger-btn" class="header__hamburger__open-btn">
+        {% include 'icons/hamburger' %}
+      </button>
+      {{ menu }}
+    </section>
+   <section class="header__logo">
+    {% include 'logos/shuffle', icon_class: "desktop" %}
+    {% include 'logos/shuffle-simple', icon_class: "mobile" %}
+    <h2 class="header__logo__text">{{ settings['header'].settings.header_logo_text }}</h2>
+  </section>
+  <section class="header__payment-methods">
+    <small>We accept</small>
+    {% include 'payment-methods' %}
+  </section>
+    <section  class="header__menu__desktop">
+      {{ menu }}
+    </section>
+    <button class="header__cart" >
+      {% include 'icons/cart-shopping' %}
+    </button>
+</header>

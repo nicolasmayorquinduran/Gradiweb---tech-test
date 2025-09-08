@@ -1,0 +1,151 @@
+@use "../src/styles//global.scss";
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "links links ."
+    "payment payment payment"
+    "newsletter newsletter newsletter"
+    "primary primary socials"
+    "legal legal legal";
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 16px;
+    background-color: #121212;
+    color: white;
+}
+
+.footer__links {
+  grid-area: links;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    &__main{
+      gap: 16px;
+    }
+    &__legal{
+      gap: 8px;
+    }
+}
+
+.footer__links__main, .footer__links__legal, .footer__socials {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__payment-methods {
+    grid-area: payment;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer__newsletter {
+    grid-area: newsletter;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: none;
+    padding: 0;
+    &__newsletter > label {
+    @extend .font-small
+    } 
+    &__input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-gray800);
+        padding: 8px 16px 8px 32px;
+    } 
+    &__input > input {
+      border: none;
+      background-color: transparent;
+      color: var(--color-white100);
+    } 
+    &__input > input::placeholder {
+      color: var(--color-gray300);
+      border: none;
+    }
+    &__input > input:focus-visible {
+        outline: none;
+    } 
+    &__input > svg {
+      background-color: none;
+      color: var(--color-primaryNeonPurple);
+    } 
+}
+
+.footer__primary-info {
+    grid-area: primary;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .svg{
+      font-size: 48px;
+    }
+    &__separator{
+        height: 18px;
+        width: 2px;
+        background-color: var(--color-primaryNeonPurple);
+    }
+}
+
+.footer__socials {
+    grid-area: socials;
+}
+
+
+.footer__legal {
+    grid-area: legal;
+    display: block;
+    text-align: left;
+}
+
+.footer__legal p,
+.footer__legal a {
+    display: inline; 
+    margin-right: 4px; 
+    white-space: nowrap; 
+}
+
+
+@media (min-width: 768px) {
+
+    .footer {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas:
+          "primary links newsletter"
+          "legal payment socials";
+    }
+
+    .footer__links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__links__main, .footer__links__legal {
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px;
+    }
+  
+    .footer__socials {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer__legal {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer__legal p,
+    .footer__legal a {
+        margin: 0;
+    }
+}

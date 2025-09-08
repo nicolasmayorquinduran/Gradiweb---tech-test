@@ -1,0 +1,21 @@
+{% assign marquee_items = 8 %}
+{% assign children_length = 2 %}
+{% assign half_items = marquee_items | divided_by: children_length %}
+
+{% capture marquee_content %}
+    <div class="marquee__content top-bar__marquee__content" style="--marquee-items: {{ marquee_items }};">
+      {% for variable in (1..half_items) %}
+          <small  class="top-bar__marquee__content__item marquee__content__item"> {{ 'Free shipping for orders over $100' | upcase }}</small>
+         {% include 'icons/sparkle' %}
+      {% endfor %}
+    </div>
+{% endcapture %}
+
+<section id="top-bar" class="top-bar"> 
+  <section class="top-bar__marquee marquee">
+    <div class="marquee__track">
+      {{ marquee_content }}
+      {{ marquee_content }}
+    </div>
+  </section>
+</section>
