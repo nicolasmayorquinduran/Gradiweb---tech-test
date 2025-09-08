@@ -1,39 +1,32 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-  stickyMenu();
-  toggleMenu();
-});
+const topBar = document.getElementById('top-bar');
+const header = document.getElementById('header');
+const headerHamburger = document.getElementById('header__hamburger');
+const headerLinks = document.querySelector(".header__link")
+const topBarHeight = topBar.offsetHeight;
+const headerHeight = header.offsetHeight;
+const hamburgerButtonOpen = document.getElementById('open-hamburger-btn');
+const hamburgerButtonClose = document.getElementById('close-hamburger-btn');
 
-
-function stickyMenu() {
-  const topBar = document.querySelector('#top-bar');
-  const header = document.querySelector('#header');
-  const topBarHeight = topBar.offsetHeight;
-  const headerHeight = header.offsetHeight;
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > topBarHeight + headerHeight) {
+export function conditionalStickyStyle() {
+     if (window.scrollY > topBarHeight + headerHeight) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-  });
 }
 
-function toggleMenu() {
-  const headerLinksContainer = document.getElementById('header-links-container');
-  const openBtn = document.getElementById('open-hamburger-btn');
-  const closeBtn = document.getElementById('close-hamburger-btn');
+hamburgerButtonOpen?.addEventListener( "click", () => {
+  headerHamburger?.classList.add('header__hamburger--open');
+  headerHamburger?.classList.remove('header__hamburger--closed');
+})
 
-  if (openBtn && headerLinksContainer) {
-    openBtn.addEventListener('click', () => {
-      headerLinksContainer.setAttribute('data-hamburger-open', 'true');
-    });
-  }
+hamburgerButtonClose?.addEventListener( "click", () => {
+  headerHamburger?.classList.add('header__hamburger--closed');
+  headerHamburger?.classList.remove('header__hamburger--open');
+})
 
-  if (closeBtn && headerLinksContainer) {
-    closeBtn.addEventListener('click', () => {
-      headerLinksContainer.setAttribute('data-hamburger-open', 'false');
-    });
-  }
-}
-
+headerLinks.addEventListener( "click", () => {
+  headerHamburger?.classList.add('header__hamburger--closed');
+  headerHamburger?.classList.remove('header__hamburger--open');
+})

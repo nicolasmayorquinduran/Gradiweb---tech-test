@@ -1,4 +1,3 @@
-// variables que mencionaste
 let allProducts = [];
 let offset = 0;
 const carrouselRowLength = 4;
@@ -7,63 +6,14 @@ const parser = new DOMParser();
 let isLoading = false;
 let reachedEnd = false;
 
-function appendProducts(newProducts) {
-  const container = document.querySelector('#featured-products-container');
-  if (!container || !newProducts || newProducts.length === 0) return;
-
-  const fragment = document.createDocumentFragment();
-  newProducts.forEach(card => fragment.appendChild(card));
-  container.appendChild(fragment);
-}
-
-function initInitialProducts() {
-  const container = document.querySelector('#featured-products-container');
-  if (!container) return;
-
-  const existing = Array.from(container.querySelectorAll('.product-card'));
-  if (existing.length) {
-    allProducts = existing.slice();
-    offset = allProducts.length;
-  }
-}
-
-async function loadMore() {
-  if (isLoading || reachedEnd) return;
-  isLoading = true;
-  try {
-    const response = await fetch(`/api/products?from=${offset}&limit=${carrouselRowLength}`, {
-      method: 'GET'
-    });
-    
-    if (!response.ok) throw new Error('La respuesta de la red no fue exitosa.');
-
-    const htmlString = await response.text();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    const newNodes = Array.from(doc.querySelectorAll('.product-card'));
-
-    if (newNodes.length === 0) {
-      reachedEnd = true;
-      return;
-    }
-
-    allProducts.push(...newNodes);
-    appendProducts(newNodes);
-
-    offset += newNodes.length;
-  } catch (error) {
-    console.error('Error al obtener los productos:', error);
-  } finally {
-    isLoading = false;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+export function fetchProducts(){
+  {
   const container = document.getElementById('featured-products-container');
   const scrollTopBtn = document.getElementById('scroll-top-btn');
 
-  initInitialProducts();
+  __initInitialProducts();
   if (allProducts.length === 0) {
-    loadMore();
+    __loadMoreProducts();
   }
 
   if (!container) return;
@@ -78,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const threshold = 20;
     if (scrollTop + clientHeight >= scrollHeight - threshold) {
-      loadMore();
+      __loadMoreProducts();
     }
   });
 
@@ -87,4 +37,55 @@ document.addEventListener('DOMContentLoaded', () => {
       container.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-});
+}
+}
+
+
+function __appendProducts(newProducts) {
+  const container = document.querySelector('#featured-products-container');
+  if (!container || !newProducts || newProducts.length === 0) return;
+
+  const fragment = document.createDocumentFragment();
+  newProducts.forEach(card => fragment.appendChild(card));
+  container.appendChild(fragment);
+}
+
+function __initInitialProducts() {
+  const container = document.querySelector('#featured-products-container');
+  if (!container) return;
+
+  const existing = Array.from(container.querySelectorAll('.product-card'));
+  if (existing.length) {
+    allProducts = existing.slice();
+    offset = allProducts.length;
+  }
+}
+
+async function __loadMoreProducts() {
+  if (isLoading || reachedEnd) return;
+  isLoading = true;
+  try {
+    const response = await fetch(`/api/products?from=${offset}&limit=${carrouselRowLength}`, {
+      method: 'GET'
+    });
+    
+    if (!response.ok) throw new Error('La respuesta de la red no fue exitosa.');
+
+    const htmlString = await response.text();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    const newNodes = Array.from(doc.querySelectorAll('.product-card'));
+    
+    if (newNodes.length === 0) {
+      reachedEnd = true;
+      return;
+    }
+    allProducts.push(...newNodes);
+    __appendProducts(newNodes);
+    offset += newNodes.length;
+  } catch (error) {
+    console.error('Error al obtener los productos:', error);
+  } finally {
+    isLoading = false;
+  }
+}
+

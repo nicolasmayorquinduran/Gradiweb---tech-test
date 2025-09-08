@@ -1,9 +1,16 @@
-<section id="collections">
-  <h2>{{ settings['collections'].settings.heading }}</h2>
-  <div>
+<section id="collections" class="collections section-delimited">
+  <div class="collections__title">
+     {% include 'icons/sparkle' %}
+    <h2 class="font-larger">{{ settings['collections'].settings.heading | upcase}}</h2>
+     {% include 'icons/sparkle' %}
+  </div>
+  <div class="collections__images">
     {% for collection in collections %}
         {% if collection.created_at contains "2025" %}
-           <img class="collection-image" src="{{ collection.image | image_url: '400x' | prepend: 'assets/' }}" alt="{{ collection.title }}" width="400" height="400">
+          <div class="collections__images__image-container">
+            <img src="{{ collection.image | image_url: '400x' | prepend: 'assets/' }}" alt="{{ collection.title }}" width="800" height="400">
+            <h6>{{ collection.title | upcase }}</h6>
+          </div>
         {% endif %}
     {% endfor %}
   </div>

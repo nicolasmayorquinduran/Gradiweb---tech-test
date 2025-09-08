@@ -1,0 +1,143 @@
+@use "../src/styles//global.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-black);
+  position: sticky;
+  top: 0;
+  left: 0;  
+  z-index: 10;
+  height: auto;
+  padding: 8px 8px 32px 8px;
+  gap: 16px;
+  transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+  &__payment-methods {
+    display: none;
+    align-items: center;
+    gap: 16px;
+    border: solid 1px var(--color-primaryNeonPurple);
+    padding: 4px 12px;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  &__menu__desktop{
+    display: none;
+  }
+}
+
+.header.scrolled {
+  background: rgba(143, 143, 143, 0.7);
+  backdrop-filter: blur(6px);
+  padding: 8px 8px;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    flex:1;
+    gap: 16px;
+    height: 52px;
+    overflow: hidden;
+    .svg{
+      font-size: 48px;
+      border-right: solid 2px var(--color-primaryNeonPurple);
+      padding-right: 16px;
+    }
+    &__text {
+    font-family: var(--font-secondary);
+    font-size: 24px;
+    color: var(--color-white100);
+  }
+}
+
+.header__hamburger--closed {
+ .header__link{
+  display: none;
+ }
+ .header__hamburger__close-hamburger-btn{
+  display: none;
+ }
+}
+
+.header__hamburger--open{
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      position: fixed;
+       display: flex;
+       align-items: center;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100vh;
+       z-index: 10;
+       gap: 8px;
+       flex-direction: column;
+       padding: 32px;
+    .header__hamburger__open-btn{
+      display: none;
+    }
+     .header__link{
+       @extend .font-larger;
+    }
+     .header__hamburger__close-hamburger-btn{
+       color: var(--color-black);
+       margin-bottom: 32px;
+    }
+}
+
+.header__hamburger__open-btn{
+  background-color: transparent;
+  .svg{
+    color: var(--color-primaryNeonPurple);
+    font-size: 48px
+  }
+}
+
+
+.header__cart {
+  @extend .button--primary;
+  color: var(--color-white100);
+  height: fit-content;
+}
+
+@media (min-width: 768px) {
+  .header__logo {
+    height: 32px;
+    flex: inherit;
+    .svg{
+      font-size: 180px;
+    }
+}
+  .header{
+    justify-content: space-between;
+    &__menu__desktop{
+      display: flex;
+      gap: 16px;
+      .header__hamburger__close-hamburger-btn{
+        display: none;
+      }
+    }
+    &__hamburger{
+      display: none;
+    }
+
+    &__menu{
+        display: flex;
+        gap: 8px;
+        &__close-close-hamburger-btn{
+          display: none;
+        }
+    }
+  }
+}
+
+
+@media (min-width: 976px) {
+  .header{
+    &__payment-methods {
+        display: flex;
+    }
+  }
+  
+}
