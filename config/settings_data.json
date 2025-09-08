@@ -20,7 +20,7 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "button_text": "Shop Now",
+        "button_text": "View all collection",
         "marquee_text": "shuffle essentials",
         "background_image": "hero_banner_img.avif"
       }
@@ -35,7 +35,7 @@
      "collections": {
       "type": "collections",
       "settings": {
-        "heading": "Latest Collections"
+        "heading": "Latest Collection"
       }
     },
     "footer": {
@@ -52,9 +52,9 @@
           { "label": "Terms of Service", "url": "/terms-of-service" }
         ],
         "social_links": [
-          { "icon": "facebook", "url": "https://www.facebook.com" },
-          { "icon": "twitter", "url": "https://www.twitter.com" },
-          { "icon": "instagram", "url": "https://www.instagram.com" }
+          { "label": "facebook", "url": "https://www.facebook.com" },
+          { "label": "twitter", "url": "https://www.twitter.com" },
+          { "label": "instagram", "url": "https://www.instagram.com" }
         ],
         "newsletter_label": "Subscribe and recieve drop notifications",
         "newsletter_placeholder": "Enter your email"

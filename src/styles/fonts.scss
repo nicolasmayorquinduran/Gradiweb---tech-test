@@ -14,13 +14,13 @@
 
 
 @font-face {
-  font-family: 'treck_classic';
-  src: url('../../assets/fonts/treck_classic.ttf') format('truetype');
+  font-family: 'predator';
+  src: url('../../assets/fonts/predator.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 :root {
   --font-primary: 'aeonik', sans-serif;
-  --font-secondary: 'treck_classic', sans-serif;
+  --font-secondary: 'predator', sans-serif;
 }
