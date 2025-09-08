@@ -22,7 +22,7 @@ npm run dev
 ```
 
 Once started, the application will be accessible at:
-👉 http://localhost:3006
+👉 http://localhost:3000
 
 Don't forget to set up your environment variables! Before running the project, create a .env file by duplicating the .env-template file and filling in the required values.
 
