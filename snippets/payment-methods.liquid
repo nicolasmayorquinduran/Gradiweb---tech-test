@@ -1,0 +1,5 @@
+  <div class="payment-methods">
+    {% for method in paymentMethods %}
+      {% include 'logos/{{ method.icon }}' %}
+    {% endfor %}
+  </div>

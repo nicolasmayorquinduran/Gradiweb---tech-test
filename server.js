@@ -20,17 +20,36 @@ app.set('view engine', 'liquid');
 
 app.use(express.static('public'));
 
-const products = require('./data/products.json');
 const collections = require('./data/collections.json');
+const paymentMethods = require('./data/payment-methods.json');
 const settings = JSON.parse(fs.readFileSync('./config/settings_data.json', 'utf-8'));
 
-app.get('/', (req, res) => {
+app.use(express.static(path.resolve(__dirname, 'public')));
+
+app.get('/', (_, res) => {
   res.render('index', { 
-    products, 
+    paymentMethods,
+    products: [], 
     collections, 
     settings: settings.sections
   });
 });
+
+app.get('/api/products', async (req, res) => {
+  try {
+    const from = parseInt(req.query.from) || 0;
+    const limit = parseInt(req.query.limit);
+    const products = require('./data/products.json');
+    const selectedProducts = limit ? products.slice(from, from + limit) : products;
+    const html = await engine.renderFile('featured-products', { products: selectedProducts, settings: settings.sections });
+    res.send(html);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error renderizando los productos');
+  }
+});
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

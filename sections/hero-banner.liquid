@@ -1,0 +1,19 @@
+{% assign marquee_items = 4 %}
+{% assign children_length = 2 %}
+{% assign half_items = marquee_items | divided_by: children_length %}
+
+{% capture marquee_content %}
+    <div class="marquee__content">
+      {% for variable in (1..half_items) %}
+          <h3>{{  settings['hero-banner'].settings.marquee_text | upcase }}</h3>
+         {% include 'icons/sparkle' %}
+      {% endfor %}
+    </div>
+{% endcapture %}
+
+  <section class="hero-banner marquee">
+    <div class="marquee__track">
+      {{ marquee_content }}
+      {{ marquee_content }}
+    </div>
+  </section>

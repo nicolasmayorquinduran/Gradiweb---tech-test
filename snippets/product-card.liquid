@@ -1,11 +1,21 @@
-<div class="product-card">
-  <h3>{{ product.title }}</h3>
-  <p>Price: ${{ product.price }}</p>
+<section class="product-card">
+  <div class="product-card__image-container">
+    <img src="{{ product.image| image_url: '100%' | prepend: 'assets/' }}" alt="Ket Club" width="1200" height="800">
+  </div>
+  <div class="product-card__body">
+    <button class="product-card__body__cart" >
+      {% include 'icons/cart-shopping' %}
+    </button>
+    <div class="product-card__body__info">
+      <h6 class="font-small">{{ product.title }}</h6>
+      <p class="font-small">Price: ${{ product.price }}</p>
+    </div>
+  </div>
   {% if product.tags %}
-    <ul>
+    <ul class="product-card__tags font-small">
       {% for tag in product.tags %}
         <li>{{ tag }}</li>
       {% endfor %}
     </ul>
   {% endif %}
-</div>
+</section>

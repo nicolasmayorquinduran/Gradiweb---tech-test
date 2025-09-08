@@ -1,5 +1,30 @@
 {
   "sections": {
+    "top-bar": {
+      "type": "top-bar",
+      "settings": {
+        "marquee_text": "Free Shipping on Orders Over $50"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "header_logo_text": "Store",
+        "logo_image": "logos/shuffle_logo.svg",
+        "header_links": [
+          { "label": "All Products", "url": "/#products" },
+          { "label": "Collections", "url": "/#collections" }
+        ]
+      }
+    },
+    "hero-banner": {
+      "type": "hero-banner",
+      "settings": {
+        "button_text": "View all collection",
+        "marquee_text": "shuffle essentials",
+        "background_image": "hero_banner_img.avif"
+      }
+    },
     "featured-products": {
       "type": "featured-products",
       "settings": {
@@ -7,19 +32,16 @@
         "background_color": "#ffffff"
       }
     },
-    "hero-banner": {
-      "type": "hero-banner",
+     "collections": {
+      "type": "collections",
       "settings": {
-        "button_text": "Shop Now",
-        "button_link": "/collections/all",
-        "marquee_text": "Free Shipping on Orders Over $50",
-        "background_image": "hero_banner_img.avif"
+        "heading": "Latest Collection"
       }
     },
     "footer": {
       "type": "footer",
       "settings": {
-        "logo_text": "MyShopify",
+         "footer_logo_text": "Store",
         "links": [
           { "label": "Home", "url": "/" },
           { "label": "Cart", "url": "/cart" },
@@ -28,7 +50,14 @@
           { "label": "Refund Policy", "url": "/refund-policy" },
           { "label": "Privacy Policy", "url": "/privacy-policy" },
           { "label": "Terms of Service", "url": "/terms-of-service" }
-        ]
+        ],
+        "social_links": [
+          { "label": "facebook", "url": "https://www.facebook.com" },
+          { "label": "twitter", "url": "https://www.twitter.com" },
+          { "label": "instagram", "url": "https://www.instagram.com" }
+        ],
+        "newsletter_label": "Subscribe and recieve drop notifications",
+        "newsletter_placeholder": "Enter your email"
       }
     }
   }

@@ -1,4 +1,54 @@
 [
+    {
+    "name": "Top Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "top_marquee_text",
+        "label": "Top Bar Text"
+      }
+    ]
+  },
+  {
+  "name": "Header",
+  "settings": [
+      {
+        "type": "text",
+        "id": "header_logo_text",
+        "label": "Button Text"
+      },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "link_list",
+      "id": "header_links",
+      "label": "Header Links",
+    }
+  ]
+},
+    {
+    "name": "Hero Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "text",
+        "id": "marquee_text",
+        "label": "Marquee Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      }
+    ]
+  },
   {
     "name": "Featured Products",
     "settings": [
@@ -12,6 +62,46 @@
         "id": "background_color",
         "label": "Background Color"
       }
+    ]
+  },
+    {
+    "name": "Collections",
+    "settings": [
+      {
+        "type": "text",
+        "id": "collections-heading",
+        "label": "Heading Text"
+      },
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_logo_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "link_list",
+        "id": "links",
+        "label": "Footer Links"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_label",
+        "label": "Newsletter Input Placeholder"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_placeholder",
+        "label": "Newsletter Input Placeholder"
+      },
+      {
+        "type": "link_list",
+        "id": "social_links",
+        "label": "Social Links"
+      },
     ]
   }
 ]
