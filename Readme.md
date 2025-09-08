@@ -70,7 +70,26 @@ We've implemented a hybrid rendering approach for the products, blending the spe
 
 Initial Load: Products are rendered on the server, ensuring the first page loads quickly and is fully indexed by search engines for optimal SEO.
 
+```js
+    const from = parseInt(req.query.from) || 0;
+    const limit = parseInt(req.query.limit);
+    const products = require('./data/products.json');
+    const selectedProducts = limit ? products.slice(from, from + limit) : products;
+    const html = await engine.renderFile('featured-products', { products: selectedProducts, settings: settings.sections });
+    res.send(html);
+```
+
 Infinite Scroll: As the user scrolls, new products are fetched on demand via an offset and injected directly into the DOM. This provides a seamless SPA experience without requiring a full page reload, conserving both server and client resources.
+
+```js
+    const htmlString = await response.text();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    const newNodes = Array.from(doc.querySelectorAll('.product-card'));
+    allProducts.push(...newNodes);
+    __appendProducts(newNodes);
+    offset += newNodes.length;
+```
+
 
 - **Smooth Transitions**
 The user interface includes various subtle transitions, enhancing the overall user experience and making the site feel more polished and dynamic.
