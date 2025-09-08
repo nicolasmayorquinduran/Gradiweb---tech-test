@@ -1,4 +1,34 @@
-# 🚀 Gradiweb - Technical Test
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone [Your Repository URL]
+```
+
+### 2️⃣️ Install dependencies:
+
+```bash
+cd shopify-simulator
+npm install
+```
+
+### 2️⃣ Run the project:
+
+```bash
+npm run dev
+```
+
+Once started, the application will be accessible at:
+👉 http://localhost:3006
+
+Don't forget to set up your environment variables! Before running the project, create a .env file by duplicating the .env-template file and filling in the required values.
+
+---
+
+# 🚀 What are you going to see?
 
 This project is the solution to the **Gradiweb technical test**.  
 It features a landing page built with the **Shopify Simulator framework**, adhering to the provided desktop and mobile designs.
@@ -31,28 +61,16 @@ This project includes the following sections and functionalities:
 
 ---
 
-## 🚀 Getting Started
+## ✨ Added Value
 
-Follow these steps to run the project locally:
+Our development approach combines the best of both worlds to deliver a superior user experience and a robust architecture.
 
-### 1️⃣ Clone the repository
+- **Hybrid Rendering (SSR + SPA)**
+We've implemented a hybrid rendering approach for the products, blending the speed of Server-Side Rendering (SSR) with the fluidity of a Single-Page Application (SPA).
 
-```bash
-git clone [Your Repository URL]
-```
+Initial Load: Products are rendered on the server, ensuring the first page loads quickly and is fully indexed by search engines for optimal SEO.
 
-### 2️⃣️ Install dependencies:
+Infinite Scroll: As the user scrolls, new products are fetched on demand via an offset and injected directly into the DOM. This provides a seamless SPA experience without requiring a full page reload, conserving both server and client resources.
 
-```bash
-cd shopify-simulator
-npm install
-```
-
-### 2️⃣ Run the project:
-
-```bash
-npm run dev
-```
-Once started, the application will be accessible at:
-👉 http://localhost:3006
-
+- **Smooth Transitions**
+The user interface includes various subtle transitions, enhancing the overall user experience and making the site feel more polished and dynamic.
